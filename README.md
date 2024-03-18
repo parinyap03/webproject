@@ -1,9 +1,9 @@
-# [ชื่อโปรเจคของคุณ]
+# CP Check-IN & QA
 
 [![Build Status](https://travis-ci.org/chisanupong45/Mobile_PJ2566_2.svg?branch=master)](https://travis-ci.org/chisanupong45/Mobile_PJ2566_2)
 
 ## คำอธิบาย
-[อธิบายโปรเจคของคุณให้เข้าใจง่าย]
+
 
 ## วิธีใช้
 1. คลอน (clone) โปรเจคไปยังเครื่องของคุณ
