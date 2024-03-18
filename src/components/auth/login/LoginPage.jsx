@@ -1,7 +1,8 @@
 import React, { useState } from 'react'
 import { Navigate, Link } from 'react-router-dom'
 import { doSignInWithEmailAndPassword, doSignInWithGoogle } from '../../../firebase/auth'
-import { useAuth } from '../../../contexts/authContext'
+import { useAuth } from '../../../contexts/authContext/AuthContext'
+import Swal from 'sweetalert2'
 
 const Login = () => {
     const { userLoggedIn } = useAuth()
@@ -9,14 +10,19 @@ const Login = () => {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const [isSigningIn, setIsSigningIn] = useState(false)
-    const [errorMessage, setErrorMessage] = useState('')
+
 
     const onSubmit = async (e) => {
         e.preventDefault()
         if(!isSigningIn) {
             setIsSigningIn(true)
             await doSignInWithEmailAndPassword(email, password).catch(err => {
-                setErrorMessage(err.message)
+                // setErrorMessage(err.message)
+                Swal.fire({ // use SweetAlert2 to display the error message
+                    icon: 'error',
+                    title: 'Oops...',
+                    text: 'Please check your email and password!',
+                })
                 setIsSigningIn(false)
             })
         }
@@ -28,6 +34,11 @@ const Login = () => {
             setIsSigningIn(true)
             doSignInWithGoogle().catch(err => {
                 setIsSigningIn(false)
+                Swal.fire({ // use SweetAlert2 to display the error message
+                    icon: 'error',
+                    title: 'Oops...',
+                    text: 'Something went wrong!',
+                })
             })
         }
     }
@@ -73,10 +84,6 @@ const Login = () => {
                                 className="w-full mt-2 px-3 py-2 text-gray-500 bg-transparent outline-none border focus:border-indigo-600 shadow-sm rounded-lg transition duration-300"
                             />
                         </div>
-
-                        {errorMessage && (
-                            <span className='text-red-600 font-bold'>{errorMessage}</span>
-                        )}
 
                         <button
                             type="submit"

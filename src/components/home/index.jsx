@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
-import { useAuth } from "../../contexts/authContext";
+import { useAuth } from "../../contexts/authContext/AuthContext";
 import { doc, getDoc } from "firebase/firestore";
 import { db } from "../../firebase/firebase";
-import Student from "./student/student";
-import Teacher from "./teacher/teacher";
+import Student from "./student/StudentPage";
+import Teacher from "./teacher/TeacherPage";
 import NotFoundPage from "../error/NotFoundPage";
 
 const Home = () => {
