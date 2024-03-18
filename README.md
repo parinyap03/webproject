@@ -1,15 +1,43 @@
-# Getting Started with Create React App
+# [ชื่อโปรเจคของคุณ]
 
-This is [DEMO]([https://chisanupong45.github.io/Mobile_PJ2566_2/])
+[![Build Status](https://travis-ci.org/chisanupong45/Mobile_PJ2566_2.svg?branch=master)](https://travis-ci.org/chisanupong45/Mobile_PJ2566_2)
 
-## Available Scripts
+## คำอธิบาย
+[อธิบายโปรเจคของคุณให้เข้าใจง่าย]
 
-In the project directory, you can run:
+## วิธีใช้
+1. คลอน (clone) โปรเจคไปยังเครื่องของคุณ
+   ```
+   git clone https://github.com/chisanupong45/Mobile_PJ2566_2.git
+   ```
+2. เข้าไปในโฟลเดอร์ของโปรเจค
+   ```
+   cd Mobile_PJ2566_2
+   ```
+3. ติดตั้ง dependencies ด้วยคำสั่ง
+   ```
+   npm install
+   ```
+4. เริ่มต้นแอปพลิเคชันในโหมดการพัฒนา (development mode)
+   ```
+   npm start
+   ```
+5. เปิดเบราว์เซอร์และไปที่ [http://localhost:3000/](http://localhost:3000/) เพื่อดูแอปของคุณ
 
-### `npm start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## โครงสร้างโปรเจค
+```
+my-app/
+  ├── README.md
+  ├── node_modules/
+  ├── package.json
+  ├── .gitignore
+  ├── public/
+  │   ├── favicon.ico
+  │   ├── index.html
+  │   ├── logo192.png
+  │   ├── logo512.png
+  ├── src/
+  │   ├── App.js
+  │   ├── index.js
+  │   └── ...
+```
