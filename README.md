@@ -1,6 +1,6 @@
 # Getting Started with Create React App
 
-This is [DEMO](https://github.com/facebook/create-react-app](https://chisanupong45.github.io/Mobile_PJ2566_2/).
+This is [DEMO](https://github.com/facebook/create-react-app](https://chisanupong45.github.io/Mobile_PJ2566_2/)).
 
 ## Available Scripts
 
