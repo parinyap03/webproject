@@ -1,10 +1,10 @@
+import StartPage from "./components/start/StartPage";
+
 import Login from "./components/auth/login/LoginPage";
 import Register from "./components/auth/register/RegisterPage";
 
 import Header from "./components/header/Header";
 import Home from "./components/home";
-
-import NotFoundPage from "./components/error/NotFoundPage";
 
 import TeacherDetails from "./components/home/teacher/TeacherDetails";
 
@@ -16,7 +16,7 @@ function App() {
   const routesArray = [
     {
       path: "*",
-      element: <Login />,
+      element: <StartPage />,
     },
     {
       path: "/login",
@@ -33,11 +33,7 @@ function App() {
     {
       path: "/teacher-detail/:id",
       element: <TeacherDetails />,
-    },
-    {
-      path: "*",
-      element: <NotFoundPage />,
-    },
+    }
   ];
   let routesElement = useRoutes(routesArray);
   return (

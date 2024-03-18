@@ -10,6 +10,7 @@ import {
   signInWithPopup,
   GoogleAuthProvider,
 } from "firebase/auth";
+import Swal from 'sweetalert2';
 
 export const doCreateUserWithEmailAndPassword = async (email, password) => {
   try {
@@ -55,7 +56,11 @@ export const doSignInWithGoogle = async () => {
       displayName: user.displayName,
     });
   } else {
-    console.log("Not a KKU email");
+    Swal.fire({
+      icon: 'error',
+      title: 'Oops...',
+      text: 'Not a KKU email or Gmail!',
+    });
   }
 };
 

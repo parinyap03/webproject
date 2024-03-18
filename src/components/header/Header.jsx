@@ -21,6 +21,7 @@ const Header = () => {
           onClick={() => {
             doSignOut().then(() => {
               navigate("/login");
+              localStorage.removeItem('checkInId');
             });
           }}
           className="text-sm m-5"

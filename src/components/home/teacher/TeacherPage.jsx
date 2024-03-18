@@ -79,6 +79,7 @@ const Teacher = () => {
         `Your check-in ID has been generated. The ID is ${docId}.`,
         "success"
       );
+      fetchCheckInData();
     }
   };
 
@@ -156,6 +157,7 @@ const Teacher = () => {
           className="p-2 bg-red-500 text-white rounded"
           type="button"
           onClick={() => {
+            setIdCheck("");
             setSubjectName("");
             setRoomNumber("");
           }}
@@ -173,7 +175,7 @@ const Teacher = () => {
         All Classes Detailed
       </div>
 
-      <div className="mt-4">
+      <div className="mt-10 overflow-x-auto">
         <table className="table-auto ml-auto mr-auto">
           <thead>
             <tr>
