@@ -5,8 +5,6 @@ import { doSignOut } from "../../firebase/auth";
 import logo from "../../assets/logo.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
-  faUserPlus,
-  faSignInAlt,
   faSignOutAlt,
 } from "@fortawesome/free-solid-svg-icons";
 

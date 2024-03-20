@@ -2,9 +2,9 @@ import React, { useEffect, useState } from "react";
 import { useAuth } from "../../contexts/authContext/AuthContext";
 import { doc, getDoc } from "firebase/firestore";
 import { db } from "../../firebase/firebase";
-import Student from "./student/StudentPage";
-import Teacher from "./teacher/TeacherPage";
-import NotFoundPage from "../error/NotFoundPage";
+import Student from "./student/Student";
+import Teacher from "./teacher/Teacher";
+import NotFoundPage from "../error/ErrorPage";
 
 const Home = () => {
     const { currentUser } = useAuth();

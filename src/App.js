@@ -1,16 +1,17 @@
-import StartPage from "./components/start/StartPage";
+// import StartPage from "./components/start/StartPage";
 
-import Login from "./components/auth/login/LoginPage";
-import Register from "./components/auth/register/RegisterPage";
+
+import Login from "./components/auth/login/Login";
+import Register from "./components/auth/register/Register";
 
 import Header from "./components/header/Header";
 import Home from "./components/home";
 
-import TeacherDetails from "./components/home/teacher/TeacherDetails";
+import TeacherDetails from "./components/home/teacher/TeacherInfor";
 
 import { AuthProvider } from "./contexts/authContext/AuthContext";
 import { useRoutes } from "react-router-dom";
-import Footer from "./components/footer/Footer";
+// import Footer from "./components/footer/Footer";
 
 function App() {
   const routesArray = [
