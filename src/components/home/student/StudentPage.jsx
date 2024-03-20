@@ -176,8 +176,8 @@ const Student = () => {
   };
 
   return (
-    <div className="flex justify-center flex-wrap">
-      <div className="w-full md:w-1/2 p-4 bg-white shadow-md rounded-md mr-5">
+    <div className="flex justify-center flex-wrap  flex-column mt-20">
+      <div className="w-auto p-4 bg-white shadow-md rounded-md mr-5">
         <div className="text-xl font-semibold pt-14 m-5">
           ID :{" "}
           {editMode ? (
@@ -266,7 +266,7 @@ const Student = () => {
         </div>
 
       </div>
-      <div className="flex justify-start w-full md:w-1/3">
+      <div className="flex justify-center flex-wrap  flex-column ">
         <div className="w-full p-4 bg-white shadow-md rounded-md">
           <div className="text-xl font-semibold pt-14 m-5">
             <div className="text-2xl font-bold text-center m-5">

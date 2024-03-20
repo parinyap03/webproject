@@ -14,12 +14,12 @@ import Footer from "./components/footer/Footer";
 
 function App() {
   const routesArray = [
+    // {
+    //   path: "*",
+    //   element: <StartPage />,
+    // },
     {
       path: "*",
-      element: <StartPage />,
-    },
-    {
-      path: "/login",
       element: <Login />,
     },
     {
@@ -41,7 +41,7 @@ function App() {
       <Header />
       <div className="w-full h-screen flex flex-col justify-between">
         {routesElement}
-        <Footer />
+        {/* <Footer /> */}
       </div>
     </AuthProvider>
   );
