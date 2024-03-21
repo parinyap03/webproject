@@ -73,7 +73,7 @@ const Student = () => {
     const checkID = document.getElementById("id").value;
     setCheckInId(checkID);
 
-    const checkinDocRef = doc(db, "checkin", checkID);
+    const checkinDocRef = doc(db, "attendance", checkID);
     const checkSubcollectionRef = doc(
       checkinDocRef,
       "check",
@@ -84,19 +84,10 @@ const Student = () => {
     const checkSnapshot = await getDoc(checkSubcollectionRef);
 
     if (!checkinSnapshot.exists()) {
-      Swal.fire({
-        icon: "error",
-        title: "Oops...",
-        text: "No such check-in ID!",
-      });
+      alert("Error Code!");
     } else if (checkSnapshot.exists()) {
-      Swal.fire({
-        icon: "warning",
-        title: "Oops...",
-        text: "Already checked in!",
-      }).then(() => {
-        window.location.reload();
-      });;
+      alert("Already checked!");
+      window.location.reload();
       localStorage.setItem("checkInId", checkID);
     } else {
       await setDoc(checkSubcollectionRef, {
@@ -106,12 +97,8 @@ const Student = () => {
         section: doc(db, "students", currentUser.email),
       });
 
-      Swal.fire({
-        icon: "success",
-        title: "Check-in successful",
-      }).then(() => {
-        window.location.reload();
-      });;
+      alert("Success");
+      window.location.reload();
 
       localStorage.setItem("checkInId", checkID);
       document.getElementById("id").value = "";
@@ -123,7 +110,7 @@ const Student = () => {
     if (!checkInId) {
       return;
     }
-    const q = query(collection(doc(db, "checkin", checkInId), "question"));
+    const q = query(collection(doc(db, "attendance", checkInId), "questions"));
 
     const unsubscribe = onSnapshot(q, (snapshot) => {
       const newQuestions = snapshot.docs.map((doc) => ({
@@ -149,7 +136,7 @@ const Student = () => {
         const checkInId = localStorage.getItem("checkInId");
 
         await updateDoc(
-          doc(db, "checkin", checkInId, "question", questionId),
+          doc(db, "attendance", checkInId, "questions", questionId),
           {
             ans: arrayUnion(answerRef.current.value),
           }
@@ -179,7 +166,7 @@ const Student = () => {
     <div className="flex justify-center flex-wrap  flex-column mt-20">
       <div className="w-auto p-4 bg-white shadow-md rounded-md mr-5">
         <div className="text-xl font-semibold pt-14 m-5">
-          ID :{" "}
+          {/* ID :{" "}
           {editMode ? (
             <input
               type="text"
@@ -190,7 +177,7 @@ const Student = () => {
           ) : (
             id
           )}{" "}
-          <br />
+          <br /> */}
           Name :{" "}
           {editMode ? (
             <input
@@ -203,8 +190,8 @@ const Student = () => {
             name
           )}{" "}
           <br />
-          Section :{" "}
-          {editMode ? (
+          {/* Section :{" "} */}
+          {/* {editMode ? (
             <input
               type="text"
               className="border p-1 mb-3"
@@ -213,11 +200,11 @@ const Student = () => {
             />
           ) : (
             section
-          )}{" "}
+          )}{" "} */}
           <br />
           Email : {currentUser.email}
           <br />
-          {editMode ? (
+          {/* {editMode ? (
             <button
               className="bg-green-500 text-white p-2 rounded mt-5"
               onClick={handleSave}
@@ -231,9 +218,11 @@ const Student = () => {
             >
               <FontAwesomeIcon icon={faEdit} /> Edit
             </button>
-          )}
+          )} */}
         </div>
         <div className="w-full p-4 bg-white shadow-md rounded-md">
+          <h1 className="text-2xl font-bold text-center">Enter class code</h1>
+          <br />
           <form onSubmit={handleCheckIn}>
             <input
               type="text"
@@ -245,13 +234,13 @@ const Student = () => {
             />
             <button
               type="submit"
-              className="mt-4 bg-blue-500 text-white p-2 rounded"
+              className=" mt-4 bg-blue-500 text-white p-2 rounded"
             >
               Submit
             </button>
           </form>
         </div>
-        <div className="text-xl font-semibold pt-14 m-5">
+        {/* <div className="text-xl font-semibold pt-14 m-5">
           Code: {checkInId}
           <button
             className="text-sm bg-red-500 text-white p-2 rounded ml-12"
@@ -263,24 +252,24 @@ const Student = () => {
           >
             Clear
           </button>
-        </div>
+        </div> */}
         <br />
         <div>
         <div className="text-2xl font-bold text-center m-5">
           Questions
         </div>
-        {questionsData.map((question, index) => (
+        {questionsData.map((questions, index) => (
           <div key={index} className="flex items-center flex-col pt-5">
-            <h3 className="font-bold mr-2">Question {question.id}:</h3>
-            <p className="overflow-auto break-words">{question.question}</p>
+            <h3 className="font-bold mr-2">Question {questions.id}:</h3>
+            <p className="overflow-auto break-words">{questions.question}</p>
             <div className="w-full p-4 bg-white shadow-md rounded-md mt-4">
-              <form onSubmit={handleSubmitAns(question.id)}>
+              <form onSubmit={handleSubmitAns(questions.id)}>
                 <input
                   type="text"
                   required
                   ref={answerRef}
                   className="text-sm mt-1 block w-full p-2 border rounded-md"
-                  placeholder={`Enter answer for question ${question.id}`}
+                  placeholder={`Enter answer for question ${questions.id}`}
                 />
                 <button
                   type="submit"
