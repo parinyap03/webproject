@@ -6,8 +6,9 @@ import Register from "./components/auth/register/Register";
 
 import Header from "./components/header/Header";
 import Home from "./components/home";
+import QuestionDetail from "./components/home/teacher/QuestionDetail";
 
-import TeacherDetails from "./components/home/teacher/TeacherInfor";
+import TeacherInfor from "./components/home/teacher/TeacherInfor";
 
 import { AuthProvider } from "./contexts/authContext/AuthContext";
 import { useRoutes } from "react-router-dom";
@@ -32,8 +33,13 @@ function App() {
       element: <Home />,
     },
     {
-      path: "/teacher-detail/:id",
-      element: <TeacherDetails />,
+      path: "/teacher-infor/:id",
+      element: <TeacherInfor />,
+    }
+    ,
+    {
+      path: "/question-detail/:id",
+      element: <QuestionDetail />,
     }
   ];
   let routesElement = useRoutes(routesArray);

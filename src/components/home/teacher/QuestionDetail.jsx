@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
+
 import {
   getDoc,
   doc,
@@ -20,7 +21,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import Swal from "sweetalert2";
 
-const TeacherInfor = () => {
+const QuestionDetail = () => {
   const { id } = useParams();
   const [teacherDetail, setTeacherDetail] = useState(null);
   const navigate = useNavigate();
@@ -81,7 +82,9 @@ const TeacherInfor = () => {
 
     fetchCheckInData();
   }, [id]);
+  
 
+  
   useEffect(() => {
     const q = query(collection(doc(db, "attendance", id), "questions"));
 
@@ -167,6 +170,10 @@ const TeacherInfor = () => {
   if (!teacherDetail) {
     return <div>Loading...</div>;
   }
+  const teacherInfoBack = () => {
+    navigate(`/teacher-detail/${id}`);
+  };
+
 
   return (
     <div>
@@ -175,9 +182,10 @@ const TeacherInfor = () => {
           <div className="mt-10">
             <button
               className="px-2 py-1 text-sm font-regular text-white bg-blue-500 rounded hover:bg-blue-700 mb-4"
-              onClick={() => navigate("/home")}
+              onClick={teacherInfoBack}
             >
-              <FontAwesomeIcon icon={faArrowLeft} />
+
+              <FontAwesomeIcon />back
             </button>
             <p className="mb-2">
               <span className="font-bold">Check-in ID:</span> {id}
@@ -201,12 +209,21 @@ const TeacherInfor = () => {
         </div>
         <div className="p-5 bg-white rounded shadow-md mt-5 md:mt-0 md:ml-5 md:w-1/3">
           <div className="mt-10">
-            <button onClick={() => navigate(`/question-detail/${id}`)} className="px-4 py-2 font-bold text-white bg-green-500 rounded hover:bg-green-700">
-              Questions
-            </button>
+            <h2 className="font-bold text-xl mb-4">New Questions</h2>
+            <form onSubmit={AddQuestionFormSubmit}>
+              <textarea
+                value={question}
+                onChange={(e) => setQuestion(e.target.value)}
+                className="w-full p-3 mb-4 border rounded"
+                placeholder="Enter your question here"
+              ></textarea>
+              <button className="px-4 py-2 font-bold text-white bg-green-500 rounded hover:bg-green-700">
+                Submit
+              </button>
+            </form>
           </div>
         </div>
-        {/* <div className="p-5 bg-white rounded shadow-md mt-5 md:mt-0 md:ml-5 md:w-1/3">
+        <div className="p-5 bg-white rounded shadow-md mt-5 md:mt-0 md:ml-5 md:w-1/3">
           <div className="mt-10">
             <h2 className="font-bold text-xl mb-4">All Questions</h2>
             <div>
@@ -226,66 +243,18 @@ const TeacherInfor = () => {
               ))}
             </div>
           </div>
-        </div> */}
+        </div>
       </div>
       <div className="flex flex-col md:flex-row justify-between mt-5">
-        <div className="w-full md:w-1/2 p-5 m-2 bg-white rounded shadow-md">
-          <div className="flex justify-between items-center">
-            <h2 className="text-xl font-bold mb-4">Student Check-In</h2>
-            <button
-              onClick={refreshTable}
-              className="text-black-500 hover:opacity-50 font-bold mb-4 rounded inline-flex items-center"
-            >
-              <FontAwesomeIcon icon={faSync} className="mr-2" />
-            </button>
-          </div>
-          <div className="overflow-x-auto">
-            <table className="min-w-full divide-y divide-gray-200">
-              <thead className="bg-gray-50">
-                <tr>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                    Student ID
-                  </th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                    Name
-                  </th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                    Section
-                  </th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                    TimeStamp
-                  </th>
-                </tr>
-              </thead>
-              <tbody className="bg-white divide-y divide-gray-200">
-                {checkInData.map((data, index) => (
-                  <tr key={index}>
-                    <td className="px-6 py-4 whitespace-nowrap">{data.id}</td>
-                    <td className="px-6 py-4 whitespace-nowrap">
-                      {data.displayName}
-                    </td>
-                    <td className="px-6 py-4 whitespace-nowrap">
-                      {data.section}
-                    </td>
-                    <td className="px-6 py-4 whitespace-nowrap">
-                      {data.datetime_check
-                        ? data.datetime_check.toDate().toLocaleString()
-                        : "N/A"}
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-        </div>
-        {/* <div className="w-full md:w-1/2 p-5 m-2 bg-white rounded shadow-md mt-5 md:mt-0">
+
+        <div className="w-full md:w-1/2 p-5 m-2 bg-white rounded shadow-md mt-5 md:mt-0">
           <div className="flex justify-between items-center">
             <h2 className="text-xl font-bold mb-4">All Answers</h2>
             <button
               onClick={refreshTable}
               className="text-black-500 hover:opacity-50 font-bold mb-4 rounded inline-flex items-center"
             >
-              <FontAwesomeIcon icon={faSync} className="mr-2" />
+              <FontAwesomeIcon className="mr-2" />refresh
             </button>
           </div>
           <div className="overflow-x-auto">
@@ -312,10 +281,9 @@ const TeacherInfor = () => {
               </tbody>
             </table>
           </div>
-        </div> */}
+        </div>
       </div>
     </div>
   );
 };
-
-export default TeacherInfor;
+export default QuestionDetail;
