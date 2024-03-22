@@ -180,7 +180,7 @@ const TeacherInfor = () => {
               <FontAwesomeIcon icon={faArrowLeft} /> Back
             </button>
             <div className="text-center">
-              <p className="mb-5  text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold">
+              <p className="mb-5 text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold">
                 <span className="font-bold">Code ID:</span> {id}
               </p>
               <p className="mb-5">
@@ -200,42 +200,42 @@ const TeacherInfor = () => {
         </div>
       </div>
 
-      <div className="mr-20 ml-20 container-fluid mt-10 boder-solid border-t border-slate-400 shadow-inner">
-        <div className="text-center">
+      <div className="mr-20 ml-20 p-10 container-fluid mt-10 boder-solid border-t border-slate-400 shadow-inner">
+        <div >
           <button
                 onClick={refreshTable}
-                className="mt-5 px-4 py-2 font-bold text-gray-500 "
+                className="ml-20 text-gray-500 hover:opacity-50 font-bold  rounded inline-flex items-center"
                >
-                <FontAwesomeIcon/>Refresh table
+                <FontAwesomeIcon className="mr-2"/>Refresh 
               </button>
 
           <div className="mt-8 overflow-x-auto pl-20 pr-20 mb-20 ">
             
-            <table className="table-auto w-full border-slate-950">
+            <table className="table-auto w-full border-slate-950 text-center">
               <thead >
                 <tr>
                   {/* <th className="border px-4 py-2 bg-orange-50 border-slate-950">
                     Student ID
                   </th> */}
-                  <th className="border px-4 py-2 border-slate-950">
+                  <th className="border px-4 py-2 border-slate-950 text-xl">
                     Name
                   </th>
-                  <th className="border px-4 py-2 border-slate-950">
+                  <th className="border px-4 py-2 border-slate-950 text-xl">
                     TimeStamp
                   </th>
                 </tr>
               </thead>
-              <tbody className="border px-4 py-2 border-slate-950">
+              <tbody className="border px-4 py-2 border-slate-300">
                 {checkInData.map((data, index) => (
                   <tr key={index}>
                     {/* <td className="px-6 py-4 whitespace-nowrap">{data.id}</td> */}
-                    <td className="border px-6 py-4 border-slate-950">
+                    <td className="border px-6 py-4 border-slate-300">
                       {data.displayName}
                     </td>
                     {/* <td className="px-6 py-4 whitespace-nowrap">
                       {data.section}
                     </td> */}
-                    <td className="border px-6 py-4 bg-orange border-slate-950">
+                    <td className="border px-6 py-4 bg-orange border-slate-300">
                       {data.datetime_check
                         ? data.datetime_check.toDate().toLocaleString()
                         : "N/A"}

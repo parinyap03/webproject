@@ -204,21 +204,7 @@ const Student = () => {
           <br />
           Email : {currentUser.email}
           <br />
-          {/* {editMode ? (
-            <button
-              className="bg-green-500 text-white p-2 rounded mt-5"
-              onClick={handleSave}
-            >
-              <FontAwesomeIcon icon={faSave} /> Save
-            </button>
-          ) : (
-            <button
-              className="bg-yellow-500 text-white p-2 rounded mt-5"
-              onClick={handleEdit}
-            >
-              <FontAwesomeIcon icon={faEdit} /> Edit
-            </button>
-          )} */}
+          
         </div>
         <br/>
         <div className="p-10 bg-white font-medium border-solid border-t border-slate-400 shadow-inner">

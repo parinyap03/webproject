@@ -97,7 +97,7 @@ const Teacher = () => {
   };
 
   return (
-    <div className="mt-10 text-center">
+    <div className="mt-10 text-center ">
       <div className="mt-4 text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold pt-14"  >
         Manage your class
       </div>
@@ -130,11 +130,11 @@ const Teacher = () => {
 
       <div className="mt-10 overflow-x-auto pl-20 pr-20 mb-20">
         <table className="table-auto w-full border-slate-950">
-          <thead >
+          <thead>
             <tr>
-              <th className="border px-4 py-2 border-slate-950">Code</th>
-              <th className="border px-4 py-2 border-slate-950">Date</th>
-              <th className="border px-4 py-2  border-slate-950" colSpan={2}>
+              <th className="border px-4 py-2 border-slate-950 text-xl">Code</th>
+              <th className="border px-4 py-2 border-slate-950 text-xl">Date</th>
+              <th className="border px-4 py-2 border-slate-950 text-xl" colSpan={2}>
                 Action
               </th>
             </tr>
@@ -147,13 +147,13 @@ const Teacher = () => {
                   key={index}
                   className={index % 2 === 0 ? "bg-white-200" : ""}
                 >
-                  <td className="border px-4 py-2 border-slate-950">{data.id}</td>
-                  <td className="border px-4 py-2 border-slate-950">
+                  <td className="border px-4 py-2 border-slate-300">{data.id}</td>
+                  <td className="border px-4 py-2 border-slate-300">
                     {data.class_date.toDate().toLocaleString()}
                   </td>
                   {/* <td className="border px-4 py-2">{data.teachers}</td> */}
                   
-                  <td className="border px-4 py-2 border-slate-950">
+                  <td className="border px-4 py-2 border-slate-300">
                     <button
                       className="w-24 px-5 py-3 border border-solid border-emerald-600 text-emerald-600 rounded-3xl  font-semibold hover:bg-gradient-to-r from-emerald-700 to-emerald-400 hover:text-white"
                       type="button"
@@ -162,7 +162,7 @@ const Teacher = () => {
                       <FontAwesomeIcon/> View
                     </button>
                   </td>
-                  <td className="border px-4 py-2 border-slate-950">
+                  <td className="border px-4 py-2 border-slate-300">
                     <button
                       className="w-24 px-5 py-3 border border-solid border-red-500 text-red-500 rounded-3xl font-semibold hover:bg-gradient-to-r from-red-700 to-red-400 hover:text-white"
                       type="button"

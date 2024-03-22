@@ -171,66 +171,57 @@ const QuestionDetail = () => {
     return <div>Loading...</div>;
   }
   const teacherInfoBack = () => {
-    navigate(`/teacher-detail/${id}`);
+    navigate(`/teacher-infor/${id}`);
   };
 
 
   return (
     <div>
-      <div className="flex flex-col md:flex-row mt-5">
-        <div className="p-5 bg-white rounded shadow-md md:w-1/3">
-          <div className="mt-10">
+      <div className="container-fluid">
+        <div className="mt-20">
+          <div className="mt-5 text-lg text-black-600">
             <button
-              className="px-2 py-1 text-sm font-regular text-white bg-blue-500 rounded hover:bg-blue-700 mb-4"
+              className="btn btn-primary ml-20 pl-5"
               onClick={teacherInfoBack}
             >
-
-              <FontAwesomeIcon />back
+              <FontAwesomeIcon icon={faArrowLeft}/> Back
             </button>
-            <p className="mb-2">
-              <span className="font-bold">Check-in ID:</span> {id}
-            </p>
-            {/* <p className="mb-2">
-              <span className="font-bold">Subject:</span>{" "}
-              {teacherDetail.subject}
-            </p>
-            <p className="mb-2">
-              <span className="font-bold">Room:</span> {teacherDetail.room}
-            </p> */}
-            <p className="mb-2">
-              <span className="font-bold">Date:</span>{" "}
-              {teacherDetail.class_date.toDate().toLocaleString()}
-            </p>
-            {/* <p className="mb-2">
-              <span className="font-bold">Teacher:</span>{" "}
-              {teacherDetail.teacher}
-            </p> */}
+            <div className="text-center">
+                <p className="mb-5 text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold">
+                  <span className="font-bold">Check-in ID:</span> {id}
+                </p>
+                <p className="mb-5">
+                  <span className="font-bold">Date:</span>{" "}
+                   {teacherDetail.class_date.toDate().toLocaleString()}
+                </p>
+            </div>   
           </div>
         </div>
-        <div className="p-5 bg-white rounded shadow-md mt-5 md:mt-0 md:ml-5 md:w-1/3">
-          <div className="mt-10">
-            <h2 className="font-bold text-xl mb-4">New Questions</h2>
-            <form onSubmit={AddQuestionFormSubmit}>
-              <textarea
-                value={question}
-                onChange={(e) => setQuestion(e.target.value)}
-                className="w-full p-3 mb-4 border rounded"
-                placeholder="Enter your question here"
-              ></textarea>
-              <button className="px-4 py-2 font-bold text-white bg-green-500 rounded hover:bg-green-700">
-                Submit
-              </button>
-            </form>
-          </div>
+
+        <div className="ml-20 mr-20 p-10 bg-white font-medium border-solid border-t border-slate-400 shadow-inner">
+          <h1 className="text-2xl font-semibold">New Questions</h1>
+          <br/>
+          <form onSubmit={AddQuestionFormSubmit} className="flex flex-row items-center">
+            <textarea
+              value={question}
+              onChange={(e) => setQuestion(e.target.value)}
+              className="mt-1 block w-3/4 h-auto px-5 py-3 border border-solid border-gray-400 rounded-3xl"
+              placeholder="Enter your question here"
+            ></textarea>
+            <button className="ml-3 w-auto px-5 py-3 border border-solid border-violet-800 text-violet-800 rounded-3xl font-semibold hover:bg-gradient-to-r from-violet-500 to-fuchsia-500 hover:text-white">
+              Submit
+            </button>
+          </form>
         </div>
-        <div className="p-5 bg-white rounded shadow-md mt-5 md:mt-0 md:ml-5 md:w-1/3">
-          <div className="mt-10">
-            <h2 className="font-bold text-xl mb-4">All Questions</h2>
+        
+        <div className="ml-20 mr-20 p-10 bg-white font-medium border-solid border-t border-slate-400 shadow-inner">
+            <h1 className="text-2xl font-semibold">All Questions</h1>
+            <br/>
             <div>
               {questionsData.map((question, index) => (
-                <div key={index} className="flex items-center">
-                  <h3 className="font-bold mr-2">Question {question.id}:</h3>
-                  <p className="overflow-hidden break-all">
+                <div key={index} className="mt-5 p-10 bg-white font-medium border-solid border-t border-slate-2 shadow inner">
+                  <h3 className="text-2xl font-semibold">Question {question.id}:</h3>
+                  <p className="mt-5 overflow-auto break-words">
                     {question.question}
                   </p>
                   <button
@@ -241,39 +232,35 @@ const QuestionDetail = () => {
                   </button>
                 </div>
               ))}
-            </div>
-          </div>
+            </div>  
         </div>
-      </div>
-      <div className="flex flex-col md:flex-row justify-between mt-5">
 
-        <div className="w-full md:w-1/2 p-5 m-2 bg-white rounded shadow-md mt-5 md:mt-0">
-          <div className="flex justify-between items-center">
-            <h2 className="text-xl font-bold mb-4">All Answers</h2>
-            <button
+        <div className="ml-20 mr-20 p-10 bg-white font-medium border-solid border-t border-slate-400 shadow-inner">
+          <h1 className="text-2xl font-semibold">All Answers</h1>
+          <br/>
+          <button
               onClick={refreshTable}
-              className="text-black-500 hover:opacity-50 font-bold mb-4 rounded inline-flex items-center"
+              className="text-gray-500 hover:opacity-50 font-bold mb-4 rounded inline-flex items-center"
             >
-              <FontAwesomeIcon className="mr-2" />refresh
+              <FontAwesomeIcon className="mr-2" />Refresh
             </button>
-          </div>
-          <div className="overflow-x-auto">
-            <table className="min-w-full divide-y divide-gray-200 mt-4">
-              <thead className="bg-gray-50">
+            <div className="mt-5 overflow-x-auto pl-20 pr-20 mb-20">
+            <table className="table-auto w-full border-slate-950">
+              <thead>
                 <tr>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                  <th className="border px-4 py-2 border-slate-950 text-xl">
                     No.
                   </th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                  <th className="border px-4 py-2 border-slate-950 text-xl">
                     Answer
                   </th>
                 </tr>
               </thead>
-              <tbody className="bg-white divide-y divide-gray-200">
+              <tbody>
                 {answersData.map((answer, index) => (
-                  <tr key={index}>
-                    <td className="px-6 py-4 whitespace-nowrap">{answer.id}</td>
-                    <td className="px-6 py-4 whitespace-nowrap">
+                  <tr key={index } className="text-center">
+                    <td className="border px-4 py-2 border-slate-300ap">{answer.id}</td>
+                    <td className="border px-4 py-2 border-slate-300p">
                       {answer.ans.join(", ")}
                     </td>
                   </tr>
@@ -282,7 +269,9 @@ const QuestionDetail = () => {
             </table>
           </div>
         </div>
+
       </div>
+      
     </div>
   );
 };
