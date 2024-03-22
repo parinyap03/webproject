@@ -104,18 +104,18 @@ const Teacher = () => {
   };
 
   return (
-    <div className="mt-4 text-center ">
-      <div className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold pt-14">
+    <div className="mt-10 text-center ">
+      <div className="mt-4 text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold pt-14"  >
         Hello {name ? name : currentUser.displayName}, You are a teacher.
       </div>
       <br />
-      <div className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-blue-600">
+      <div className="mt-5 text-x sm:text-2xl md:text-3xl lg:text-4xl text-black-600">
         Random Code : {idCheck}
       </div>
       <br/>
-      <div className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-blue-600">
+      <div className="text-xl sm:text-2xl md:text-3xl lg:text-2xl text-black-600">
         <button
-          className="mr-4 p-2 bg-blue-500 text-white rounded"
+          className="p-2 bg-blue-500 text-white rounded"
           type="submit"
           value="Submit"
           onClick={generateIdCheck}
@@ -124,36 +124,26 @@ const Teacher = () => {
           <FontAwesomeIcon/> Random Code
         </button>
        
-        {/* <button
-          className="p-2 bg-red-500 text-white rounded"
-          type="button"
-          onClick={() => {
-            setIdCheck(null);
-            // setSubjectName("");
-            // setRoomNumber("");
-          }}
-        >
-          <FontAwesomeIcon /> Reset
-        </button> */}
+        
       </div>
       <br />
-      <div className="mt-4">
+      <div className="mt-4 ">
         Date: {date.toLocaleDateString()} &nbsp; Time:{" "}
         {date.toLocaleTimeString()}
       </div>
       
 
-      <div className="mt-4 text-center text-2xl font-bold">
+      <div className="mt-4 pt-10  mr-20 ml-20 text-center text-2xl font-bold border-solid border-t border-slate-200">
         Classes Detailed
       </div>
 
-      <div className="mt-10 overflow-x-auto">
-        <table className="table-auto ml-auto mr-auto">
+      <div className="mt-10 overflow-x-auto pl-20 pr-20 mb-20">
+        <table className="table-auto w-full">
           <thead>
             <tr>
-              <th className="px-4 py-2">Code</th>
-              <th className="px-4 py-2">Date</th>
-              <th className="px-4 py-2" colSpan={2}>
+              <th className="border px-4 py-2 bg-orange-50">Code</th>
+              <th className="border px-4 py-2 bg-orange-50">Date</th>
+              <th className="border px-4 py-2 bg-orange-50" colSpan={2}>
                 Action
               </th>
             </tr>
@@ -164,7 +154,7 @@ const Teacher = () => {
               .map((data, index) => (
                 <tr
                   key={index}
-                  className={index % 2 === 0 ? "bg-gray-200" : ""}
+                  className={index % 2 === 0 ? "bg-white-200" : ""}
                 >
                   <td className="border px-4 py-2">{data.id}</td>
                   <td className="border px-4 py-2">
@@ -173,7 +163,7 @@ const Teacher = () => {
                   {/* <td className="border px-4 py-2">{data.teachers}</td> */}
                   <td className="border px-4 py-2">
                     <button
-                      className="p-2 bg-red-500 text-white rounded"
+                      className="px-5 py-3 border border-solid border-red-100 text-red-500 rounded-3xl hover:bg-red-400 hover:text-white"
                       type="button"
                       onClick={() => deleteCheckIn(data.id)}
                     >
@@ -182,7 +172,7 @@ const Teacher = () => {
                   </td>
                   <td className="border px-4 py-2">
                     <button
-                      className="p-2 bg-green-500 text-white rounded"
+                      className="px-5 py-3 border border-solid border-green-100 text-green-500 rounded-3xl hover:bg-green-400 hover:text-white"
                       type="button"
                       onClick={() => viewDetails(data.id)}
                     >
