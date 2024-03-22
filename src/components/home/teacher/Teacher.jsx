@@ -112,7 +112,7 @@ const Teacher = () => {
       <br/>
       <div className="mt-5 text-xl sm:text-2xl md:text-3xl lg:text-2xl text-black-600">
         <button
-          className="px-5 py-3 border border-solid border-gray-500 text-gray-500 rounded-3xl font-semibold hover:bg-gray-500 hover:text-white"
+          className="px-5 py-3 border border-solid border-violet-800 text-violet-800 rounded-3xl font-semibold hover:bg-gradient-to-r from-violet-500 to-fuchsia-500 hover:text-white"
           type="submit"
           value="Submit"
           onClick={generateIdCheck}
@@ -132,7 +132,7 @@ const Teacher = () => {
       </div>
       
 
-      <div className="mt-4 pt-10  mr-20 ml-20 text-center text-2xl font-bold border-solid border-t border-slate-200">
+      <div className="mt-4 pt-10  mr-20 ml-20 text-center text-2xl font-bold border-solid border-t border-slate-400 shadow-inner">
         Classes Detailed
       </div>
 
@@ -163,7 +163,7 @@ const Teacher = () => {
                   
                   <td className="border px-4 py-2 border-slate-950">
                     <button
-                      className="w-24 px-5 py-3 border border-solid border-green-500 text-green-500 rounded-3xl  font-semibold hover:bg-green-400 hover:text-white"
+                      className="w-24 px-5 py-3 border border-solid border-emerald-600 text-emerald-600 rounded-3xl  font-semibold hover:bg-gradient-to-r from-emerald-700 to-emerald-400 hover:text-white"
                       type="button"
                       onClick={() => viewDetails(data.id)}
                     >
@@ -172,7 +172,7 @@ const Teacher = () => {
                   </td>
                   <td className="border px-4 py-2 border-slate-950">
                     <button
-                      className="w-24 px-5 py-3 border border-solid border-red-500 text-red-500 rounded-3xl font-semibold hover:bg-red-400 hover:text-white"
+                      className="w-24 px-5 py-3 border border-solid border-red-500 text-red-500 rounded-3xl font-semibold hover:bg-gradient-to-r from-red-700 to-red-400 hover:text-white"
                       type="button"
                       onClick={() => deleteCheckIn(data.id)}
                     >
