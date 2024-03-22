@@ -12,7 +12,7 @@ const Header = () => {
   const navigate = useNavigate();
   const { userLoggedIn } = useAuth();
   return (
-    <nav className="flex flex-row justify-between w-full z-20 fixed top-0 left-0 h-16 border-b items-center ">
+    <nav className="flex flex-row justify-between w-full z-20 fixed top-0 left-0 h-16 border-b items-center bg-white">
       {/* <img src={logo} alt="Logo" className="h-10 m-5" /> */}
       {userLoggedIn ? (
         <button
@@ -22,7 +22,7 @@ const Header = () => {
               localStorage.removeItem('checkInId');
             });
           }}
-          className="text-sm m-5 right-20"
+          className="text-sm ml-20 p-5 right-20 font-semibold hover:bg-gray-500 hover:text-white"
         >
           <FontAwesomeIcon icon={faSignOutAlt} /> Logout
         </button>

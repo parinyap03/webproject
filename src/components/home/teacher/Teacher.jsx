@@ -108,23 +108,22 @@ const Teacher = () => {
       <div className="mt-4 text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold pt-14"  >
         Hello {name ? name : currentUser.displayName}, You are a teacher.
       </div>
-      <br />
-      <div className="mt-5 text-x sm:text-2xl md:text-3xl lg:text-4xl text-black-600">
-        Random Code : {idCheck}
-      </div>
+      
       <br/>
-      <div className="text-xl sm:text-2xl md:text-3xl lg:text-2xl text-black-600">
+      <div className="mt-5 text-xl sm:text-2xl md:text-3xl lg:text-2xl text-black-600">
         <button
-          className="p-2 bg-blue-500 text-white rounded"
+          className="px-5 py-3 border border-solid border-gray-500 text-gray-500 rounded-3xl font-semibold hover:bg-gray-500 hover:text-white"
           type="submit"
           value="Submit"
           onClick={generateIdCheck}
           // disabled={!subjectName || !roomNumber} // Button will be disabled if either subjectName or roomNumber is null
         >
           <FontAwesomeIcon/> Random Code
-        </button>
-       
-        
+        </button>  
+      </div>
+      <br />
+      <div className="text-x sm:text-2xl md:text-3xl lg:text-4xl text-black-00">
+        Random Code : {idCheck}
       </div>
       <br />
       <div className="mt-4 ">
@@ -138,12 +137,12 @@ const Teacher = () => {
       </div>
 
       <div className="mt-10 overflow-x-auto pl-20 pr-20 mb-20">
-        <table className="table-auto w-full">
+        <table className="table-auto w-full border-slate-950">
           <thead>
             <tr>
-              <th className="border px-4 py-2 bg-orange-50">Code</th>
-              <th className="border px-4 py-2 bg-orange-50">Date</th>
-              <th className="border px-4 py-2 bg-orange-50" colSpan={2}>
+              <th className="border px-4 py-2 bg-orange-50 border-slate-950">Code</th>
+              <th className="border px-4 py-2 bg-orange-50 border-slate-950">Date</th>
+              <th className="border px-4 py-2 bg-orange-50 border-slate-950" colSpan={2}>
                 Action
               </th>
             </tr>
@@ -156,27 +155,28 @@ const Teacher = () => {
                   key={index}
                   className={index % 2 === 0 ? "bg-white-200" : ""}
                 >
-                  <td className="border px-4 py-2">{data.id}</td>
-                  <td className="border px-4 py-2">
+                  <td className="border px-4 py-2 border-slate-950">{data.id}</td>
+                  <td className="border px-4 py-2 border-slate-950">
                     {data.class_date.toDate().toLocaleString()}
                   </td>
                   {/* <td className="border px-4 py-2">{data.teachers}</td> */}
-                  <td className="border px-4 py-2">
+                  
+                  <td className="border px-4 py-2 border-slate-950">
                     <button
-                      className="px-5 py-3 border border-solid border-red-100 text-red-500 rounded-3xl hover:bg-red-400 hover:text-white"
-                      type="button"
-                      onClick={() => deleteCheckIn(data.id)}
-                    >
-                      <FontAwesomeIcon/> Delete
-                    </button>
-                  </td>
-                  <td className="border px-4 py-2">
-                    <button
-                      className="px-5 py-3 border border-solid border-green-100 text-green-500 rounded-3xl hover:bg-green-400 hover:text-white"
+                      className="w-24 px-5 py-3 border border-solid border-green-500 text-green-500 rounded-3xl  font-semibold hover:bg-green-400 hover:text-white"
                       type="button"
                       onClick={() => viewDetails(data.id)}
                     >
                       <FontAwesomeIcon/> View
+                    </button>
+                  </td>
+                  <td className="border px-4 py-2 border-slate-950">
+                    <button
+                      className="w-24 px-5 py-3 border border-solid border-red-500 text-red-500 rounded-3xl font-semibold hover:bg-red-400 hover:text-white"
+                      type="button"
+                      onClick={() => deleteCheckIn(data.id)}
+                    >
+                      <FontAwesomeIcon/> Delete
                     </button>
                   </td>
                 </tr>
