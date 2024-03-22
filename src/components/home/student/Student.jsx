@@ -163,9 +163,9 @@ const Student = () => {
   };
 
   return (
-    <div className="flex justify-center flex-wrap  flex-column mt-20">
-      <div className="w-auto p-4 bg-white shadow-md rounded-md mr-5">
-        <div className="text-xl font-semibold pt-14 m-5">
+    <div>
+      <div className="p-10">
+        <div className="mt-4 text-xl font-bold pt-14">
           {/* ID :{" "}
           {editMode ? (
             <input
@@ -220,68 +220,58 @@ const Student = () => {
             </button>
           )} */}
         </div>
-        <div className="w-full p-4 bg-white shadow-md rounded-md">
-          <h1 className="text-2xl font-bold text-center">Enter class code</h1>
+        <br/>
+        <div className="p-10 bg-white font-medium border-solid border-t border-slate-400 shadow-inner">
+          <h1 className="text-2xl font-semibold">Enter class code</h1>
           <br />
-          <form onSubmit={handleCheckIn}>
+          <form onSubmit={handleCheckIn} className="flex flex-row items-center">
             <input
               type="text"
               id="id"
               required
               maxLength="5"
-              className="mt-1 block w-full p-2 border rounded-md"
+              className="mt-1 block w-64 px-5 py-3 border border-solid border-gray-400 rounded-3xl"
               placeholder="Enter Code"
             />
             <button
               type="submit"
-              className=" mt-4 bg-blue-500 text-white p-2 rounded"
+              className="ml-3 w-auto px-5 py-3 border border-solid border-violet-800 text-violet-800 rounded-3xl font-semibold hover:bg-gradient-to-r from-violet-500 to-fuchsia-500 hover:text-white"
             >
-              Submit
+              Submit Class Code
             </button>
           </form>
         </div>
-        {/* <div className="text-xl font-semibold pt-14 m-5">
-          Code: {checkInId}
-          <button
-            className="text-sm bg-red-500 text-white p-2 rounded ml-12"
-            onClick={() => {
-              localStorage.removeItem("checkInId");
-              setCheckInId("");
-              window.location.reload();
-            }}
-          >
-            Clear
-          </button>
-        </div> */}
+        
         <br />
-        <div>
-        <div className="text-2xl font-bold text-center m-5">
-          Questions
-        </div>
-        {questionsData.map((questions, index) => (
-          <div key={index} className="flex items-center flex-col pt-5">
-            <h3 className="font-bold mr-2">Question {questions.id}:</h3>
-            <p className="overflow-auto break-words">{questions.question}</p>
-            <div className="w-full p-4 bg-white shadow-md rounded-md mt-4">
-              <form onSubmit={handleSubmitAns(questions.id)}>
-                <input
-                  type="text"
-                  required
-                  ref={answerRef}
-                  className="text-sm mt-1 block w-full p-2 border rounded-md"
-                  placeholder={`Enter answer for question ${questions.id}`}
-                />
-                <button
-                  type="submit"
-                  className="flex items-center justify-center mt-4 bg-green-500 hover:bg-green-700 text-white text-sm py-2 px-4 rounded"
-                >
-                  <FontAwesomeIcon icon={faPaperPlane} className="mr-2" />
-                  Submit Answer
-                </button>
-              </form>
-            </div>
+
+        <div className="p-10 bg-white font-medium border-solid border-t border-slate-400 shadow-inner">
+          <div className="text-2xl font-semibold">
+            Questions
           </div>
-        ))}
+            {questionsData.map((questions, index) => (
+              <div key={index} className="mt-5 p-10 bg-white font-medium border-solid border-t border-slate-2 shadow inner">
+                <h3 className="text-2xl font-semibold">Question {questions.id}:</h3>
+                <p className="mt-5 overflow-auto break-words">{questions.question}</p>
+                <div className="w-full p-4 bg-white  rounded-md mt-4">
+                  <form onSubmit={handleSubmitAns(questions.id)} className="flex flex-row items-center">
+                    <input
+                      type="text"
+                      required
+                      ref={answerRef}
+                      className="mt-1 block w-1/2 px-5 py-3 border border-solid border-gray-400 rounded-3xl"
+                      placeholder={`Enter answer for question ${questions.id}`}
+                    />
+                    <button
+                      type="submit"
+                      className="ml-3 w-auto px-5 py-3 border border-solid border-solid border-violet-800 text-violet-800 rounded-3xl font-semibold hover:bg-gradient-to-r from-violet-500 to-fuchsia-500 hover:text-white"
+                    >
+                      <FontAwesomeIcon className="mr-2" />
+                      Submit Answer
+                    </button>
+                  </form>
+                </div>
+              </div>
+            ))}
         </div>
       </div>
     </div>
