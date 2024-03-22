@@ -170,104 +170,71 @@ const TeacherInfor = () => {
 
   return (
     <div>
-      <div className="flex flex-col md:flex-row mt-5">
-        <div className="p-5 bg-white rounded shadow-md md:w-1/3">
-          <div className="mt-10">
+      <div className="container-fluid">
+        <div className="mt-20 ml-20">
+          <div className="mt-5 text-lg text-black-600">
             <button
-              className="px-2 py-1 text-sm font-regular text-white bg-blue-500 rounded hover:bg-blue-700 mb-4"
+              className="btn btn-primary"
               onClick={() => navigate("/home")}
             >
-              <FontAwesomeIcon icon={faArrowLeft} />
+              <FontAwesomeIcon icon={faArrowLeft} /> Back
             </button>
-            <p className="mb-2">
-              <span className="font-bold">Check-in ID:</span> {id}
-            </p>
-            {/* <p className="mb-2">
-              <span className="font-bold">Subject:</span>{" "}
-              {teacherDetail.subject}
-            </p>
-            <p className="mb-2">
-              <span className="font-bold">Room:</span> {teacherDetail.room}
-            </p> */}
-            <p className="mb-2">
-              <span className="font-bold">Date:</span>{" "}
-              {teacherDetail.class_date.toDate().toLocaleString()}
-            </p>
-            {/* <p className="mb-2">
-              <span className="font-bold">Teacher:</span>{" "}
-              {teacherDetail.teacher}
-            </p> */}
-          </div>
-        </div>
-        <div className="p-5 bg-white rounded shadow-md mt-5 md:mt-0 md:ml-5 md:w-1/3">
-          <div className="mt-10">
-            <button onClick={() => navigate(`/question-detail/${id}`)} className="px-4 py-2 font-bold text-white bg-green-500 rounded hover:bg-green-700">
-              Questions
-            </button>
-          </div>
-        </div>
-        {/* <div className="p-5 bg-white rounded shadow-md mt-5 md:mt-0 md:ml-5 md:w-1/3">
-          <div className="mt-10">
-            <h2 className="font-bold text-xl mb-4">All Questions</h2>
-            <div>
-              {questionsData.map((question, index) => (
-                <div key={index} className="flex items-center">
-                  <h3 className="font-bold mr-2">Question {question.id}:</h3>
-                  <p className="overflow-hidden break-all">
-                    {question.question}
-                  </p>
-                  <button
-                    onClick={() => deleteQuestion(question.id)}
-                    className="bg-red-500 hover:bg-red-600 text-sm text-white font-regular py-1 px-2 rounded m-2"
-                  >
-                    <FontAwesomeIcon icon={faTrash} size="xs" />
-                  </button>
-                </div>
-              ))}
+            <div className="text-center">
+              <p className="mb-5  text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold">
+                <span className="font-bold">Code ID:</span> {id}
+              </p>
+              <p className="mb-5">
+                <span className="font-bold">Date:</span>{" "}
+                {teacherDetail.class_date.toDate().toLocaleString()}
+              </p>
+              <button
+                onClick={() => navigate(`/question-detail/${id}`)}
+                className="px-4 py-2 font-bold text-white bg-green-500 rounded hover:bg-green-700"
+              >
+                Questions
+              </button>
+              
             </div>
-          </div>
-        </div> */}
-      </div>
-      <div className="flex flex-col md:flex-row justify-between mt-5">
-        <div className="w-full md:w-1/2 p-5 m-2 bg-white rounded shadow-md">
-          <div className="flex justify-between items-center">
-            <h2 className="text-xl font-bold mb-4">Student Check-In</h2>
+            <div className="p-5 text-center">
             <button
-              onClick={refreshTable}
-              className="text-black-500 hover:opacity-50 font-bold mb-4 rounded inline-flex items-center"
-            >
-              <FontAwesomeIcon icon={faSync} className="mr-2" />
-            </button>
+                onClick={refreshTable}
+                className="px-4 py-2 font-bold text-white bg-green-500 rounded hover:bg-green-700"
+               >
+                <FontAwesomeIcon/>Refresh table
+              </button>
+              </div>
           </div>
-          <div className="overflow-x-auto">
-            <table className="min-w-full divide-y divide-gray-200">
-              <thead className="bg-gray-50">
+        </div>
+      </div>
+
+      <div className="container-fluid">
+        <div className="">
+          <div className="mt-8 overflow-x-auto pl-20 pr-20 mb-20 ">
+            <table className="table-auto w-full border-slate-950">
+              <thead >
                 <tr>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                  {/* <th className="border px-4 py-2 bg-orange-50 border-slate-950">
                     Student ID
-                  </th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                  </th> */}
+                  <th className="border px-4 py-2 border-slate-950">
                     Name
                   </th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                    Section
-                  </th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                  <th className="border px-4 py-2 border-slate-950">
                     TimeStamp
                   </th>
                 </tr>
               </thead>
-              <tbody className="bg-white divide-y divide-gray-200">
+              <tbody className="border px-4 py-2 border-slate-950">
                 {checkInData.map((data, index) => (
                   <tr key={index}>
-                    <td className="px-6 py-4 whitespace-nowrap">{data.id}</td>
-                    <td className="px-6 py-4 whitespace-nowrap">
+                    {/* <td className="px-6 py-4 whitespace-nowrap">{data.id}</td> */}
+                    <td className="border px-6 py-4 border-slate-950">
                       {data.displayName}
                     </td>
-                    <td className="px-6 py-4 whitespace-nowrap">
+                    {/* <td className="px-6 py-4 whitespace-nowrap">
                       {data.section}
-                    </td>
-                    <td className="px-6 py-4 whitespace-nowrap">
+                    </td> */}
+                    <td className="border px-6 py-4 bg-orange border-slate-950">
                       {data.datetime_check
                         ? data.datetime_check.toDate().toLocaleString()
                         : "N/A"}
@@ -278,44 +245,12 @@ const TeacherInfor = () => {
             </table>
           </div>
         </div>
-        {/* <div className="w-full md:w-1/2 p-5 m-2 bg-white rounded shadow-md mt-5 md:mt-0">
-          <div className="flex justify-between items-center">
-            <h2 className="text-xl font-bold mb-4">All Answers</h2>
-            <button
-              onClick={refreshTable}
-              className="text-black-500 hover:opacity-50 font-bold mb-4 rounded inline-flex items-center"
-            >
-              <FontAwesomeIcon icon={faSync} className="mr-2" />
-            </button>
-          </div>
-          <div className="overflow-x-auto">
-            <table className="min-w-full divide-y divide-gray-200 mt-4">
-              <thead className="bg-gray-50">
-                <tr>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                    No.
-                  </th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                    Answer
-                  </th>
-                </tr>
-              </thead>
-              <tbody className="bg-white divide-y divide-gray-200">
-                {answersData.map((answer, index) => (
-                  <tr key={index}>
-                    <td className="px-6 py-4 whitespace-nowrap">{answer.id}</td>
-                    <td className="px-6 py-4 whitespace-nowrap">
-                      {answer.ans.join(", ")}
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-        </div> */}
+
       </div>
     </div>
   );
 };
+
+
 
 export default TeacherInfor;
