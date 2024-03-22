@@ -171,10 +171,10 @@ const TeacherInfor = () => {
   return (
     <div>
       <div className="container-fluid">
-        <div className="mt-20 ml-20">
+        <div className="mt-20">
           <div className="mt-5 text-lg text-black-600">
             <button
-              className="btn btn-primary"
+              className="btn btn-primary ml-20 pl-5"
               onClick={() => navigate("/home")}
             >
               <FontAwesomeIcon icon={faArrowLeft} /> Back
@@ -189,27 +189,28 @@ const TeacherInfor = () => {
               </p>
               <button
                 onClick={() => navigate(`/question-detail/${id}`)}
-                className="px-4 py-2 font-bold text-white bg-green-500 rounded hover:bg-green-700"
+                className="px-5 py-3 border border-solid border-violet-800 text-violet-800 rounded-3xl font-semibold hover:bg-gradient-to-r from-violet-500 to-fuchsia-500 hover:text-white"
               >
                 Questions
               </button>
               
             </div>
-            <div className="p-5 text-center">
-            <button
-                onClick={refreshTable}
-                className="px-4 py-2 font-bold text-white bg-green-500 rounded hover:bg-green-700"
-               >
-                <FontAwesomeIcon/>Refresh table
-              </button>
-              </div>
+            
           </div>
         </div>
       </div>
 
-      <div className="container-fluid">
-        <div className="">
+      <div className="mr-20 ml-20 container-fluid mt-10 boder-solid border-t border-slate-400 shadow-inner">
+        <div className="text-center">
+          <button
+                onClick={refreshTable}
+                className="mt-5 px-4 py-2 font-bold text-gray-500 "
+               >
+                <FontAwesomeIcon/>Refresh table
+              </button>
+
           <div className="mt-8 overflow-x-auto pl-20 pr-20 mb-20 ">
+            
             <table className="table-auto w-full border-slate-950">
               <thead >
                 <tr>
