@@ -11,21 +11,14 @@ import {
 } from "firebase/firestore";
 import { db } from "../../../firebase/firebase";
 import { v4 as uuidv4 } from "uuid";
-import Swal from "sweetalert2";
 import { useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faEye,
-  faTrash,
-} from "@fortawesome/free-solid-svg-icons";
 
 const Teacher = () => {
   const { currentUser } = useAuth();
   const [name, setName] = useState("");
   const [idCheck, setIdCheck] = useState("");
   const [date, setDate] = useState(new Date());
-  const [subjectName, setSubjectName] = useState("");
-  const [roomNumber, setRoomNumber] = useState("");
   const [checkInData, setCheckInData] = useState([]);
   const navigate = useNavigate();
 
@@ -106,9 +99,8 @@ const Teacher = () => {
   return (
     <div className="mt-10 text-center ">
       <div className="mt-4 text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold pt-14"  >
-        Hello {name ? name : currentUser.displayName}, You are a teacher.
+        Manage your class
       </div>
-      
       <br/>
       <div className="mt-5 text-xl sm:text-2xl md:text-3xl lg:text-2xl text-black-600">
         <button
