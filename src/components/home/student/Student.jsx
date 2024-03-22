@@ -166,18 +166,7 @@ const Student = () => {
     <div>
       <div className="p-10">
         <div className="mt-4 text-xl font-bold pt-14">
-          {/* ID :{" "}
-          {editMode ? (
-            <input
-              type="text"
-              className="border p-1 mb-3"
-              value={newId}
-              onChange={(e) => setNewId(e.target.value)}
-            />
-          ) : (
-            id
-          )}{" "}
-          <br /> */}
+          
           Name :{" "}
           {editMode ? (
             <input
@@ -190,17 +179,7 @@ const Student = () => {
             name
           )}{" "}
           <br />
-          {/* Section :{" "} */}
-          {/* {editMode ? (
-            <input
-              type="text"
-              className="border p-1 mb-3"
-              value={newSection}
-              onChange={(e) => setNewSection(e.target.value)}
-            />
-          ) : (
-            section
-          )}{" "} */}
+          
           <br />
           Email : {currentUser.email}
           <br />

@@ -214,9 +214,7 @@ const TeacherInfor = () => {
             <table className="table-auto w-full border-slate-950 text-center">
               <thead >
                 <tr>
-                  {/* <th className="border px-4 py-2 bg-orange-50 border-slate-950">
-                    Student ID
-                  </th> */}
+                  
                   <th className="border px-4 py-2 border-slate-950 text-xl">
                     Name
                   </th>
@@ -228,13 +226,11 @@ const TeacherInfor = () => {
               <tbody className="border px-4 py-2 border-slate-300">
                 {checkInData.map((data, index) => (
                   <tr key={index}>
-                    {/* <td className="px-6 py-4 whitespace-nowrap">{data.id}</td> */}
+                    
                     <td className="border px-6 py-4 border-slate-300">
                       {data.displayName}
                     </td>
-                    {/* <td className="px-6 py-4 whitespace-nowrap">
-                      {data.section}
-                    </td> */}
+                  
                     <td className="border px-6 py-4 bg-orange border-slate-300">
                       {data.datetime_check
                         ? data.datetime_check.toDate().toLocaleString()

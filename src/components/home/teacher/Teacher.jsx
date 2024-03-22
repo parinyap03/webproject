@@ -56,18 +56,14 @@ const Teacher = () => {
     
     const docData = {
       class_date: new Date(),
-      // teacher: name,
+      
     };
   
     const docId = uuidv4().substr(0, 5);
     await setDoc(doc(db, "attendance", docId), docData);
     setIdCheck(docId);
   
-    // Swal.fire(
-    //   "Generated!",
-    //   `Your check-in ID has been generated. The ID is ${docId}.`,
-    //   "success"
-    // );
+    
     fetchCheckInData();
   };
   
@@ -108,7 +104,7 @@ const Teacher = () => {
           type="submit"
           value="Submit"
           onClick={generateIdCheck}
-          // disabled={!subjectName || !roomNumber} // Button will be disabled if either subjectName or roomNumber is null
+          
         >
           <FontAwesomeIcon/> Random Code
         </button>  
@@ -151,7 +147,7 @@ const Teacher = () => {
                   <td className="border px-4 py-2 border-slate-300">
                     {data.class_date.toDate().toLocaleString()}
                   </td>
-                  {/* <td className="border px-4 py-2">{data.teachers}</td> */}
+                  
                   
                   <td className="border px-4 py-2 border-slate-300">
                     <button

@@ -82,9 +82,9 @@ const QuestionDetail = () => {
 
     fetchCheckInData();
   }, [id]);
-  
 
-  
+
+
   useEffect(() => {
     const q = query(collection(doc(db, "attendance", id), "questions"));
 
@@ -174,105 +174,125 @@ const QuestionDetail = () => {
     navigate(`/teacher-infor/${id}`);
   };
 
-
-  return (
-    <div>
-      <div className="container-fluid">
-        <div className="mt-20">
-          <div className="mt-5 text-lg text-black-600">
-            <button
-              className="btn btn-primary ml-20 pl-5"
-              onClick={teacherInfoBack}
-            >
-              <FontAwesomeIcon icon={faArrowLeft}/> Back
-            </button>
-            <div className="text-center">
-                <p className="mb-5 text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold">
-                  <span className="font-bold">Check-in ID:</span> {id}
-                </p>
-                <p className="mb-5">
-                  <span className="font-bold">Date:</span>{" "}
-                   {teacherDetail.class_date.toDate().toLocaleString()}
-                </p>
-            </div>   
-          </div>
-        </div>
-
-        <div className="ml-20 mr-20 p-10 bg-white font-medium border-solid border-t border-slate-400 shadow-inner">
-          <h1 className="text-2xl font-semibold">New Questions</h1>
-          <br/>
-          <form onSubmit={AddQuestionFormSubmit} className="flex flex-row items-center">
-            <textarea
-              value={question}
-              onChange={(e) => setQuestion(e.target.value)}
-              className="mt-1 block w-3/4 h-auto px-5 py-3 border border-solid border-gray-400 rounded-3xl"
-              placeholder="Enter your question here"
-            ></textarea>
-            <button className="ml-3 w-auto px-5 py-3 border border-solid border-violet-800 text-violet-800 rounded-3xl font-semibold hover:bg-gradient-to-r from-violet-500 to-fuchsia-500 hover:text-white">
-              Submit
-            </button>
-          </form>
-        </div>
-        
-        <div className="ml-20 mr-20 p-10 bg-white font-medium border-solid border-t border-slate-400 shadow-inner">
-            <h1 className="text-2xl font-semibold">All Questions</h1>
-            <br/>
-            <div>
-              {questionsData.map((question, index) => (
-                <div key={index} className="mt-5 p-10 bg-white font-medium border-solid border-t border-slate-2 shadow inner">
-                  <h3 className="text-2xl font-semibold">Question {question.id}:</h3>
-                  <p className="mt-5 overflow-auto break-words">
-                    {question.question}
-                  </p>
-                  <button
-                    onClick={() => deleteQuestion(question.id)}
-                    className="bg-red-500 hover:bg-red-600 text-sm text-white font-regular py-1 px-2 rounded m-2"
-                  >
-                    <FontAwesomeIcon icon={faTrash} size="xs" />
-                  </button>
-                </div>
-              ))}
-            </div>  
-        </div>
-
-        <div className="ml-20 mr-20 p-10 bg-white font-medium border-solid border-t border-slate-400 shadow-inner">
-          <h1 className="text-2xl font-semibold">All Answers</h1>
-          <br/>
+ 
+return (
+  <div>
+    <div className="container-fluid">
+      <div className="mt-20">
+        <div className="mt-5 text-lg text-black-600">
           <button
-              onClick={refreshTable}
-              className="text-gray-500 hover:opacity-50 font-bold mb-4 rounded inline-flex items-center"
-            >
-              <FontAwesomeIcon className="mr-2" />Refresh
-            </button>
-            <div className="mt-5 overflow-x-auto pl-20 pr-20 mb-20">
-            <table className="table-auto w-full border-slate-950">
-              <thead>
-                <tr>
-                  <th className="border px-4 py-2 border-slate-950 text-xl">
-                    No.
-                  </th>
-                  <th className="border px-4 py-2 border-slate-950 text-xl">
-                    Answer
-                  </th>
-                </tr>
-              </thead>
-              <tbody>
-                {answersData.map((answer, index) => (
-                  <tr key={index } className="text-center">
-                    <td className="border px-4 py-2 border-slate-300ap">{answer.id}</td>
-                    <td className="border px-4 py-2 border-slate-300p">
-                      {answer.ans.join(", ")}
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
+            className="btn btn-primary ml-20 pl-5"
+            onClick={teacherInfoBack}
+          >
+            <FontAwesomeIcon icon={faArrowLeft}/> Back
+          </button>
+          <div className="text-center">
+              <p className="mb-5 text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold">
+                <span className="font-bold">Check-in ID:</span> {id}
+              </p>
+              <p className="mb-5">
+                <span className="font-bold">Date:</span>{" "}
+                 {teacherDetail.class_date.toDate().toLocaleString()}
+              </p>
+          </div>   
         </div>
-
       </div>
-      
+
+      <div className="ml-20 mr-20 p-10 bg-white font-medium border-solid border-t border-slate-400 shadow-inner">
+        <h1 className="text-2xl font-semibold">New Questions</h1>
+        <br/>
+        <form onSubmit={AddQuestionFormSubmit} className="flex flex-row items-center">
+          <textarea
+            value={question}
+            onChange={(e) => setQuestion(e.target.value)}
+            className="mt-1 block w-3/4 h-auto px-5 py-3 border border-solid border-gray-400 rounded-3xl"
+            placeholder="Enter your question here"
+          ></textarea>
+          <button className="ml-3 w-auto px-5 py-3 border border-solid border-violet-800 text-violet-800 rounded-3xl font-semibold hover:bg-gradient-to-r from-violet-500 to-fuchsia-500 hover:text-white">
+            Submit
+          </button>
+        </form>
+      </div>
+
+      <div className="ml-20 mr-20 p-10 bg-white font-medium border-solid border-t border-slate-400 shadow-inner">
+          <h1 className="text-2xl font-semibold">All Questions</h1>
+          <br/>
+          <div>
+            {questionsData.map((question, index) => (
+              <div key={index} className="mt-5 p-10 bg-white font-medium border-solid border-t border-slate-2 shadow inner">
+                <h3 className="text-2xl font-semibold">Question {question.id}:</h3>
+                <p className="mt-5 overflow-auto break-words">
+                  {question.question}
+                </p>
+                <button
+                  onClick={() => deleteQuestion(question.id)}
+                  className="bg-red-500 hover:bg-red-600 text-sm text-white font-regular py-1 px-2 rounded m-2"
+                >
+                  <FontAwesomeIcon icon={faTrash} size="xs" />
+                </button>
+              </div>
+            ))}
+          </div>  
+      </div>
+
+      <div className="ml-20 mr-20 p-10 bg-white font-medium border-solid border-t border-slate-400 shadow-inner">
+        <h1 className="text-2xl font-semibold">All Answers</h1>
+        <br/>
+        <button
+            onClick={refreshTable}
+            className="text-gray-500 hover:opacity-50 font-bold mb-4 rounded inline-flex items-center"
+          >
+            <FontAwesomeIcon className="mr-2" />Refresh
+          </button>
+          <div className="mt-5 overflow-x-auto pl-20 pr-20 mb-20">
+          <table className="table-auto w-full border-slate-950">
+            <thead>
+              <tr>
+                <th className="border px-4 py-2 border-slate-950 text-xl">
+                  Name
+                </th>
+                <th className="border px-4 py-2 border-slate-950 text-xl">
+                  TimeStamp
+                </th>
+                <th className="border px-4 py-2 border-slate-950 text-xl">
+                  Question No.
+                </th>
+                <th className="border px-4 py-2 border-slate-950 text-xl">
+                  Answer
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+            <tr className="text-center font-medium">
+                 {checkInData.map((data, index) => (
+                    <React.Fragment key={index}>
+                      <td className="border px-4 py-2 border-slate-300ap">{data.displayName}</td>
+                      <td className="border px-4 py-2 border-slate-300ap">
+                        {data.datetime_check
+                          ? data.datetime_check.toDate().toLocaleString()
+                          : "N/A"}
+                      </td>
+                    </React.Fragment>
+                  ))}
+
+                  {answersData.map((answer, index) => (
+                    <React.Fragment key={index}>
+                      <td className="border px-4 py-2 border-slate-300ap">{answer.id}</td>
+                      <td className="border px-4 py-2 border-slate-300ap">
+                        {answer.ans.join(", ")}
+                      </td>
+                    </React.Fragment>
+                  ))}
+                </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
     </div>
-  );
+
+  </div>
+);
 };
+
 export default QuestionDetail;
